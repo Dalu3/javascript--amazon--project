@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+
+      /* let today = dayjs();
+      let date = today.add(51, "days");
+      console.log(date.format("MMMM D"));
+
+      date = today.add(1, "month");
+      console.log(date.format("MMMM D"));
+
+      date = today.subtract(1, "month");
+      console.log(date.format("dddd"));
+      */
+      function isWeekend(date) {
+        const dayOfWeek = date.format("dddd");
+        return dayOfWeek === "Saturday" || dayOfWeek === "Sunday";
+      }
+      let date = dayjs();
+      console.log(date.format("dddd, MMMM D"));
+      console.log(isWeekend(date));
+
+      date = dayjs().add(2, "day");
+      console.log(date.format("dddd, MMMM D"));
+      console.log(isWeekend(date));
+
+      date = dayjs().add(4, "day");
+      console.log(date.format("dddd, MMMM D"));
+      console.log(isWeekend(date));
+
+      date = dayjs().add(6, "day");
+      console.log(date.format("dddd, MMMM D"));
+      console.log(isWeekend(date));
+    </script>
+  </body>
+</html>
