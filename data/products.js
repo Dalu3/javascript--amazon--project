@@ -1,13 +1,18 @@
-export function getProduct (productId) {
-  let matchingProduct;
-  
+// Function to get a product by its ID
+export function getProduct(productId) {
+  let matchingProduct; // Initialize a variable to hold the matching product
+
+  // Loop through each product in the products array
   products.forEach((product) => {
+    // Check if the current product's ID matches the given productId
     if (product.id === productId) {
-      matchingProduct = product;
+      matchingProduct = product; // If a match is found, store the product in matchingProduct
     }
   });
-  return matchingProduct;
+
+  return matchingProduct; // Return the matching product (or undefined if no match was found)
 }
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
