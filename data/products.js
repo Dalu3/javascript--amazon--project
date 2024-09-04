@@ -1,17 +1,93 @@
-// Function to get a product by its ID
-export function getProduct(productId) {
-  let matchingProduct; // Initialize a variable to hold the matching product
+import {formatCurrency} from '../scripts/utils/money.js';
 
-  // Loop through each product in the products array
+export function getProduct(productId) {
+  let matchingProduct;
+
   products.forEach((product) => {
-    // Check if the current product's ID matches the given productId
     if (product.id === productId) {
-      matchingProduct = product; // If a match is found, store the product in matchingProduct
+      matchingProduct = product;
     }
   });
 
-  return matchingProduct; // Return the matching product (or undefined if no match was found)
+  return matchingProduct;
 }
+
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+
+  getStarsUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getPrice() {
+    return `$${formatCurrency(this.priceCents)}`;
+  }
+
+  extraInfoHTML() {
+    return '';
+  }
+}
+
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML() {
+    // super.extraInfoHTML();
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">
+        Size chart
+      </a>
+    `;
+  }
+}
+
+/*
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+
+/*
+console.log(this);
+
+const object2 = {
+  a: 2,
+  b: this.a
+};
+*/
+
+/*
+function logThis() {
+  console.log(this);
+}
+logThis();
+logThis.call('hello');
+
+this
+const object3 = {
+  method: () => {
+    console.log(this);
+  }
+};
+object3.method();
+*/
 
 export const products = [
   {
@@ -672,4 +748,9 @@ export const products = [
       "mens"
     ]
   }
-];
+].map((productDetails) => {
+  if (productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  }
+  return new Product(productDetails);
+});
