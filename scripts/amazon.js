@@ -25,7 +25,7 @@ products.forEach((product) => {
       <div class="product-rating-container">
         <!-- Image representing the star rating (dynamically loaded based on product rating) -->
         <img class="product-rating-stars"
-          src="images/ratings/rating-${product.rating.stars * 10}.png">
+          src="${product.getStarsUrl()}">
         <!-- Display the number of ratings the product has received -->
         <div class="product-rating-count link-primary">
           ${product.rating.count}
@@ -34,7 +34,7 @@ products.forEach((product) => {
 
       <!-- Product price section, formatted using the formatCurrency function -->
       <div class="product-price">
-      $${formatCurrency(product.priceCents)}
+      ${product.getPrice()}
       </div>
 
       <!-- Product quantity selection dropdown -->
