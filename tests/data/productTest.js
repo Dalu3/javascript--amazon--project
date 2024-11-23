@@ -22,8 +22,6 @@ describe('test suite: Product', () => {
   });
 
   it('has the correct properties', () => {
-    // Note: you don't have to test all the properties.
-    // You can just pick a few to test.
     expect(product.id).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
     expect(product.image).toEqual('images/products/athletic-cotton-socks-6-pairs.jpg');
     expect(product.name).toEqual('Black and Gray Athletic Cotton Socks - 6 Pairs');
@@ -71,7 +69,6 @@ describe('test suite: Clothing', () => {
   });
 
   it('has the correct properties', () => {
-    // Check if inheritance worked correctly.
     expect(clothing.id).toEqual('83d4ca15-0f35-48f5-b7a3-1ea210004f2e'),
     expect(clothing.image).toEqual('images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg');
 
@@ -87,13 +84,10 @@ describe('test suite: Clothing', () => {
   });
 
   it('displays a size chart link in extraInfoHTML', () => {
-    // It's hard to match a multiline string exactly, so we'll
-    // just check if the result contains certain strings.
     expect(clothing.extraInfoHTML()).toContain(
       `<a href="images/clothing-size-chart.png" target="_blank">`
     );
 
-    // Check the text of the link is correct.
     expect(clothing.extraInfoHTML()).toContain('Size chart');
   });
 });

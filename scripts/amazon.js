@@ -6,12 +6,9 @@ import { formatCurrency } from './utils/money.js';
 loadProducts(renderProductsGrid);
  
 export function renderProductsGrid(){
-  // Initialize an empty string that will hold the HTML for all products
   let productsHTML = '';
 
-  // Loop through each product in the products array
   products.forEach((product) => { 
-    // Append the HTML structure for each product to the productsHTML string
     productsHTML += `
       <div class="product-container">
         <!-- Product image section -->
@@ -77,29 +74,23 @@ export function renderProductsGrid(){
     `;
   });
 
-  // Insert the generated HTML for all products into the products grid container in the DOM
   document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-  // Function to update the cart quantity displayed in the header
   function updateCartQuantity (){
     const cartQuantity = calculateCartQuantity(); // Calculate the total quantity of items in the cart
 
-    // Update the HTML content of the cart quantity element with the calculated quantity
     document.querySelector('.js-cart-quantity')
       .innerHTML = cartQuantity;
   }
 
-  // Initial call to update the cart quantity on page load
   updateCartQuantity();
 
-  // Add event listeners to all "Add to Cart" buttons
   document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
-      // When an "Add to Cart" button is clicked...
       button.addEventListener('click', () => {
-        const productId = button.dataset.productId; // Get the product ID from the button's data attribute
-        addToCart(productId); // Add the product to the cart using the addToCart function
-        updateCartQuantity(); // Update the cart quantity display
+        const productId = button.dataset.productId; 
+        addToCart(productId); 
+        updateCartQuantity();
       });
     });
 };

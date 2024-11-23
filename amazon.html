@@ -3,12 +3,8 @@
   <head>
     <title>Amazon Project</title>
 
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Load a font called Roboto from Google Fonts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,20 +12,15 @@
       rel="stylesheet"
     />
 
-    <!-- Here are the CSS files for this page. -->
     <link rel="stylesheet" href="styles/shared/general.css" />
     <link rel="stylesheet" href="styles/shared/amazon-header.css" />
     <link rel="stylesheet" href="styles/pages/amazon.css" />
   </head>
   <body>
-    <!-- Amazon header section starts here -->
     <div class="amazon-header">
-      <!-- Left section of the header (Logo area) -->
       <div class="amazon-header-left-section">
         <a href="amazon.html" class="header-link">
-          <!-- Amazon logo for larger screens -->
           <img class="amazon-logo" src="images/amazon-logo-white.png" />
-          <!-- Amazon logo for smaller screens (mobile devices) -->
           <img
             class="amazon-mobile-logo"
             src="images/amazon-mobile-logo-white.png"
@@ -37,46 +28,32 @@
         </a>
       </div>
 
-      <!-- Middle section of the header (Search bar area) -->
       <div class="amazon-header-middle-section">
-        <!-- Search bar where users can type their search queries -->
         <input class="search-bar" type="text" placeholder="Search" />
 
-        <!-- Button to submit the search query -->
         <button class="search-button">
-          <!-- Icon for the search button -->
           <img class="search-icon" src="images/icons/search-icon.png" />
         </button>
       </div>
 
-      <!-- Right section of the header (User actions area) -->
       <div class="amazon-header-right-section">
-        <!-- Link to the orders page -->
         <a class="orders-link header-link" href="orders.html">
           <span class="returns-text">Returns</span>
           <span class="orders-text">& Orders</span>
         </a>
 
-        <!-- Link to the shopping cart (checkout) page -->
         <a class="cart-link header-link" href="checkout.html">
-          <!-- Cart icon -->
           <img class="cart-icon" src="images/icons/cart-icon.png" />
-          <!-- Placeholder for the number of items in the cart -->
           <div class="cart-quantity js-cart-quantity"></div>
-          <!-- Label for the cart -->
           <div class="cart-text">Cart</div>
         </a>
       </div>
     </div>
-    <!-- Amazon header section ends here -->
 
-    <!-- Main content section -->
     <div class="main">
-      <!-- Placeholder for the grid of products (populated dynamically with JavaScript) -->
       <div class="products-grid js-products-grid"></div>
     </div>
 
-    <!-- JavaScript file that contains the functionality for this page -->
     <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>
